@@ -16,10 +16,10 @@ message MExpressao {
 
 
 
-[Maciel] a. Implementar a conversão para NPR;
+OK [Maciel] a. Implementar a conversão para NPR;
 [Oton] b. Implementar a transmissão em protobuffer;
 c. Implementar a recepção em protobuffer;
-d. Implementar o cálculo da expressão via NPR;
+[Maciel] d. Implementar o cálculo da expressão via NPR;
 e. Implementar a envio do resultado;
 
 
