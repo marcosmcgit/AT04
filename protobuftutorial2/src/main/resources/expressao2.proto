@@ -4,9 +4,16 @@ option java_package = "protobuftutorial";
 option java_outer_classname = "ExpressaoProto";
  
 message MElemento {
-	anyof elemento_anyof {
+	enum EnumOperator {
+		ADDITION = 0;
+		SUBTRACTION = 1;
+		MULTIPLICATION = 2;
+		DIVISION = 3; 
+	}
+
+	oneof elemento_oneof {
 		double number = 1;
-		MOperador operador = 2;
+		EnumOperator operator = 2;
 	}
 }
 
