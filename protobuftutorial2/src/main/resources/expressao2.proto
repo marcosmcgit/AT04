@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_package = "protobuftutorial";
 option java_outer_classname = "ExpressaoProto";
  
-message MElemento {
+message MElement {
 	enum EnumOperator {
 		ADDITION = 0;
 		SUBTRACTION = 1;
@@ -11,14 +11,14 @@ message MElemento {
 		DIVISION = 3; 
 	}
 
-	oneof elemento_oneof {
+	oneof element_oneof {
 		double number = 1;
 		EnumOperator operator = 2;
 	}
 }
 
-message MExpressao {
-	repeated Melemento elemento = 1;
+message MExpression {
+	repeated Melement element = 1;
 }
 
 
