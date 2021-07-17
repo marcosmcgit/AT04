@@ -1,0 +1,17 @@
+syntax = "proto3";
+ 
+option java_package = "protobuftutorial";
+option java_outer_classname = "FilmeProto";
+ 
+message MFilme {
+    int32 id = 1;
+    string titulo = 2;
+    int32 ano = 3;
+    int32 avaliacao_imdb = 4;
+    string link_trailer = 5;   
+    repeated MFilme filmes_relacionados = 6;
+}
+
+message MListaFilmes {
+	repeated MFilme filmes = 1;
+}

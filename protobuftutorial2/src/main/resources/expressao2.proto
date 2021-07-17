@@ -1,0 +1,40 @@
+syntax = "proto3";
+ 
+option java_package = "protobuftutorial";
+option java_outer_classname = "ExpressaoProto";
+ 
+message MElemento {
+	anyof elemento_anyof {
+		double number = 1;
+		MOperador operador = 2;
+	}
+}
+
+message MExpressao {
+	repeated Melemento elemento = 1;
+}
+
+
+
+[Maciel] a. Implementar a conversão para NPR;
+[Oton] b. Implementar a transmissão em protobuffer;
+c. Implementar a recepção em protobuffer;
+d. Implementar o cálculo da expressão via NPR;
+e. Implementar a envio do resultado;
+
+
+5 - 3 / 8 + 5 * 9
+5 3 8 / - 5 9 * +
+
+
+{[5 - (3 / 8)] + (5 * 9)}
+
+
+0. Como é a entrada de dados? (parentizada ou não?)
+0.5. Se for totalmente parentizada, é possível converter para árvore. Mas ainda assim a NPR aparenta ser mais simples.
+1. A forma mais simples de converter resolver a notação infixa não parentizada é convertendo para NPR.
+2. Em NPR, os dados estão em uma fila.
+3. Trasmitir os dados da fila.
+4. Usar a calculadora remota para calcular a expressão.
+5. Enviar a resposta (outra mensagem, mas simples)
+6. Exibir o resultado.

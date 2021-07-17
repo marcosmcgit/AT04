@@ -1,0 +1,17 @@
+syntax = "proto3";
+ 
+option java_package = "protobuftutorial";
+option java_outer_classname = "ExpressaoProto";
+ 
+message MElemento {
+	anyof elemento_anyof {
+		double number = 1;
+		MOperador operador = 2;
+	}
+}
+
+message MOperador {
+	string operador = 1;
+	MElemento operando1 = 2;
+	MElemento operando2 = 3;
+}

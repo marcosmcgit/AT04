@@ -1,0 +1,37 @@
+{
+	"listaFilmes": [
+		{
+			"id": "111161",
+			"titulo": "Um Sonho de Liberdade",
+			"ano": 1994,
+			"avaliacao": 9,
+			"linkTrailer": "https://www.imdb.com/video/vi3877612057?playlistId=tt0111161",
+			"relacionados": [
+				{
+					"id": "468569",
+					"titulo": "Batman: O Cavaleiro das Trevas",
+					"ano": 2008,
+					"avaliacao": 9,
+					"linkTrailer": "https://www.imdb.com/video/vi324468761?playlistId=tt0468569",
+					"relacionados": []
+				},
+				{
+					"id": "68646",
+					"titulo": "O Poderoso Chefão",
+					"ano": 1972,
+					"avaliacao": 9.2,
+					"linkTrailer": "https://www.imdb.com/video/vi1348706585?playlistId=tt0068646",
+					"relacionados": []
+				},
+				{
+					"id": "109830",
+					"titulo": "Forrest Gump: O Contador de Histórias",
+					"ano": 1994,
+					"avaliacao": 8.8,
+					"linkTrailer": "https://www.imdb.com/video/vi3567517977?playlistId=tt0109830",
+					"relacionados": []
+				}
+			]
+		}
+	]
+}
