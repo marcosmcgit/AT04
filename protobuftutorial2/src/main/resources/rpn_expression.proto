@@ -1,6 +1,6 @@
 syntax = "proto3";
  
-option java_package = "br.ufc.mdcc.AT04.protobuffer";
+option java_package = "br.ufc.mdcc.AT04.shared.protobuffer";
 option java_outer_classname = "RPNProto";
  
 message MElement {

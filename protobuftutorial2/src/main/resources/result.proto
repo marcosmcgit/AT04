@@ -1,0 +1,8 @@
+syntax = "proto3";
+ 
+option java_package = "br.ufc.mdcc.AT04.shared.protobuffer";
+option java_outer_classname = "ResultProto";
+ 
+message Result {
+	double total = 1;
+}

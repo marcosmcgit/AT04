@@ -2,11 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.whycouch</groupId>
-	<artifactId>protobuftutorial</artifactId>
+	<groupId>br.ufc.mdcc.AT04</groupId>
+	<artifactId>CalcSocketProtobuf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ProtoBufTutorial</name>
-	<description>This project shows you how to use protocol buffers</description>
+	<name>CalcSocketProtobuf</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
@@ -21,7 +20,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-					<mainClass>protobuftutorial.Main</mainClass>
+					<mainClass>br.ufc.mdcc.AT04.server.CalculadoraServerSocket</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -1,9 +1,8 @@
 package br.ufc.mdcc.AT04.client;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.net.Socket;
 import java.util.List;
 
@@ -21,7 +20,8 @@ public class CalculadoraClientSocket {
 	 * Given a List of Elements, generates an object of MExpression class
 	 * (protobuffer representation).
 	 */
-	private static br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression generateProtobufMessage(List<Element> elements) {
+	private static br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression generateProtobufMessage(
+			List<Element> elements) {
 		br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression.Builder expressionBuilder = br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression
 				.newBuilder();
 
@@ -72,8 +72,11 @@ public class CalculadoraClientSocket {
 			socketSaidaServer.flush();
 
 			// receiving...
-			BufferedReader messageFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-			String result = messageFromServer.readLine();
+			InputStream inputStream = clientSocket.getInputStream();
+			br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result messageResult = br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result
+					.parseDelimitedFrom(inputStream);
+
+			double result = messageResult.getTotal();
 
 			System.out.println("resultado=" + result);
 

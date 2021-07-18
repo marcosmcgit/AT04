@@ -97,17 +97,23 @@ public class CalculadoraServerSocket {
 				 */
 
 				try {
+					// receiving...
 					InputStream inputStream = connectionSocket.getInputStream();
-
 					List<Element> rpn = receiveExpression(inputStream);
 
+					// solving..
 					ICalculator calculator = new Calculadora();
 					double result = ServerUtil.solveRpn(rpn, calculator);
 
 					System.out.println(String.valueOf(result));
 
+					// sending
+					br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result.Builder resultBuilder = br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result
+							.newBuilder();
+					resultBuilder.setTotal(result);
+					br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result messageResult = resultBuilder.build();
 					socketOutput = new DataOutputStream(connectionSocket.getOutputStream());
-					socketOutput.writeBytes(String.valueOf(result) + '\n');
+					messageResult.writeDelimitedTo(socketOutput);
 
 					socketOutput.flush();
 					socketOutput.close();
