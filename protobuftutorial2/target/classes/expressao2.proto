@@ -26,8 +26,8 @@ message MExpression {
 OK [Maciel] a. Implementar a conversão para NPR;
 [Oton] b. Implementar a transmissão em protobuffer;
 c. Implementar a recepção em protobuffer;
-[Maciel] d. Implementar o cálculo da expressão via NPR;
-e. Implementar a envio do resultado;
+OK [Maciel] d. Implementar o cálculo da expressão via NPR;
+e. Implementar o envio do resultado;
 
 
 5 - 3 / 8 + 5 * 9
