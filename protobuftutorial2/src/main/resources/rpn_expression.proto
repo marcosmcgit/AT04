@@ -1,0 +1,22 @@
+syntax = "proto3";
+ 
+option java_package = "br.ufc.mdcc.AT04.protobuffer";
+option java_outer_classname = "RPNProto";
+ 
+message MElement {
+	enum EnumOperator {
+		ADDITION = 0;
+		SUBTRACTION = 1;
+		MULTIPLICATION = 2;
+		DIVISION = 3; 
+	}
+
+	oneof element_oneof {
+		double number = 1;
+		EnumOperator operator = 2;
+	}
+}
+
+message MExpression {
+	repeated MElement element = 1;
+}
