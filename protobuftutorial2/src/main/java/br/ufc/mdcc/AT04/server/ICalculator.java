@@ -1,4 +1,4 @@
-package br.ufc.mdcc.AT04.model;
+package br.ufc.mdcc.AT04.server;
 
 public interface ICalculator {
 	double soma(double oper1, double oper2);

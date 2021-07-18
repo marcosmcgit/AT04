@@ -7,27 +7,26 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.List;
 
-import br.ufc.mdcc.AT04.model.Element;
-import br.ufc.mdcc.AT04.model.Number;
-import br.ufc.mdcc.AT04.model.Operator;
-import br.ufc.mdcc.AT04.protobuffer.RPNProto.MElement.EnumOperator;
-import br.ufc.mdcc.AT04.util.Util;
+import br.ufc.mdcc.AT04.shared.model.Element;
+import br.ufc.mdcc.AT04.shared.model.Number;
+import br.ufc.mdcc.AT04.shared.model.Operator;
+import br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.EnumOperator;
 
 /**
  * Cliente para o serviço de calculadora disponibilizado via sockets.
  */
 public class CalculadoraClientSocket {
 
-	public static void main(String[] args) {
-
-		String expression = "5-3/8+5*9";
-		List<Element> elements = Util.Exp2Rpn(expression);
-
-		br.ufc.mdcc.AT04.protobuffer.RPNProto.MExpression.Builder expressionBuilder = br.ufc.mdcc.AT04.protobuffer.RPNProto.MExpression
+	/*
+	 * Given a List of Elements, generates an object of MExpression class
+	 * (protobuffer representation).
+	 */
+	private static br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression generateProtobufMessage(List<Element> elements) {
+		br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression.Builder expressionBuilder = br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression
 				.newBuilder();
 
 		for (Element element : elements) {
-			br.ufc.mdcc.AT04.protobuffer.RPNProto.MElement.Builder elementBuilder = br.ufc.mdcc.AT04.protobuffer.RPNProto.MElement
+			br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.Builder elementBuilder = br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement
 					.newBuilder();
 
 			if (element.isNumber()) {
@@ -49,21 +48,34 @@ public class CalculadoraClientSocket {
 			expressionBuilder.addElement(elementBuilder.build());
 		}
 
+		br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression messageExpression = expressionBuilder.build();
+		return messageExpression;
+	}
+
+	public static void main(String[] args) {
+		String serverAddr = "127.0.0.1";
+		int serverPort = 9090;
+		String expression = "5-3/8+5*9";
+
+		// converts the expression to a List of Element containing the reverse polish
+		// notation form of the expression
+		List<Element> elements = ClientUtil.Exp2Rpn(expression);
+
+		// generates the protobuffer message
+		br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression messageExpression = generateProtobufMessage(elements);
+
 		try {
-			br.ufc.mdcc.AT04.protobuffer.RPNProto.MExpression messageExpression = expressionBuilder.build();
-
-			Socket clientSocket = new Socket("127.0.0.1", 9090);
-
+			// sending...
+			Socket clientSocket = new Socket(serverAddr, serverPort);
 			DataOutputStream socketSaidaServer = new DataOutputStream(clientSocket.getOutputStream());
-
-			messageExpression.writeTo(socketSaidaServer);
-
+			messageExpression.writeDelimitedTo(socketSaidaServer);
 			socketSaidaServer.flush();
 
-//			BufferedReader messageFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//			String result = messageFromServer.readLine();
-//
-//			System.out.println("resultado=" + result);
+			// receiving...
+			BufferedReader messageFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			String result = messageFromServer.readLine();
+
+			System.out.println("resultado=" + result);
 
 			clientSocket.close();
 		} catch (IOException e) {

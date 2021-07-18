@@ -1,4 +1,4 @@
-package br.ufc.mdcc.AT04.model;
+package br.ufc.mdcc.AT04.shared.model;
 
 public class Parenthesis implements Element {
 
