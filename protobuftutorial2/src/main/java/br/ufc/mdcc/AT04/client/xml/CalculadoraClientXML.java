@@ -1,4 +1,4 @@
-package br.ufc.mdcc.AT04.client.YAML;
+package br.ufc.mdcc.AT04.client.xml;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -10,9 +10,9 @@ import br.ufc.mdcc.AT04.shared.model.Element;
 /**
  * Cliente para o serviço de calculadora disponibilizado via sockets.
  */
-public class CalculadoraClientYAML extends AbstractCalculadoraClient {
+public class CalculadoraClientXML extends AbstractCalculadoraClient {
 
-	public CalculadoraClientYAML(String serverAddr, int serverPort, String expression) {
+	public CalculadoraClientXML(String serverAddr, int serverPort, String expression) {
 		super(serverAddr, serverPort, expression);
 	}
 
@@ -28,10 +28,10 @@ public class CalculadoraClientYAML extends AbstractCalculadoraClient {
 
 	public static void main(String[] args) {
 		String serverAddr = "127.0.0.1";
-		int serverPort = 9092;
+		int serverPort = 9091;
 		String expression = "5-3/8+5*9";
 
-		CalculadoraClientYAML clientYAML = new CalculadoraClientYAML(serverAddr, serverPort, expression);
-		clientYAML.execute();
+		CalculadoraClientXML clientXML = new CalculadoraClientXML(serverAddr, serverPort, expression);
+		clientXML.execute();
 	}
 }
