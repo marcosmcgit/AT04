@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<filmes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="filmes.xsd">
+	<filme>
+		<id>111161</id>
+		<titulo>Um Sonho de Liberdade</titulo>
+		<ano>1994</ano>
+		<avaliacao>9.2</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi3877612057?playlistId=tt0111161</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>468569</id>
+				<titulo>Batman: O Cavaleiro das Trevas</titulo>
+				<ano>2008</ano>
+				<avaliacao>9.0</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi324468761?playlistId=tt0468569</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>68646</id>
+				<titulo>O Poderoso Chefão</titulo>
+				<ano>1972</ano>
+				<avaliacao>9.2</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1348706585?playlistId=tt0068646</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>109830</id>
+				<titulo>Forrest Gump: O Contador de Histórias</titulo>
+				<ano>1994</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi3567517977?playlistId=tt0109830</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>68646</id>
+		<titulo>O Poderoso Chefão</titulo>
+		<ano>1972</ano>
+		<avaliacao>9.2</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi1348706585?playlistId=tt0068646</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>71562</id>
+				<titulo>O Poderoso Chefão II</titulo>
+				<ano>1974</ano>
+				<avaliacao>9.0</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi696162841?playlistId=tt0071562</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>111161</id>
+				<titulo>Um Sonho de Liberdade</titulo>
+				<ano>1994</ano>
+				<avaliacao>9.2</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi3877612057?playlistId=tt0111161</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>110912</id>
+				<titulo>Pulp Fiction: Tempo de Violência</titulo>
+				<ano>1994</ano>
+				<avaliacao>8.9</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2620371481?playlistId=tt0110912</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>71562</id>
+		<titulo>O Poderoso Chefão II</titulo>
+		<ano>1974</ano>
+		<avaliacao>9.0</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi696162841?playlistId=tt0071562</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>68646</id>
+				<titulo>O Poderoso Chefão</titulo>
+				<ano>1972</ano>
+				<avaliacao>9.2</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1348706585?playlistId=tt0068646</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>99674</id>
+				<titulo>O Poderoso Chefão III</titulo>
+				<ano>1990</ano>
+				<avaliacao>7.6</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1237827865?playlistId=tt0099674</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>99685</id>
+				<titulo>Os Bons Companheiros</titulo>
+				<ano>1990</ano>
+				<avaliacao>8.7</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2673654553?playlistId=tt0099685</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>468569</id>
+		<titulo>Batman: O Cavaleiro das Trevas</titulo>
+		<ano>2008</ano>
+		<avaliacao>9.0</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi324468761?playlistId=tt0468569</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>1345836</id>
+				<titulo>Batman: O Cavaleiro das Trevas Ressurge</titulo>
+				<ano>2012</ano>
+				<avaliacao>8.4</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2376312089?playlistId=tt1345836</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>1375666</id>
+				<titulo>A Origem</titulo>
+				<ano>2010</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2959588889?playlistId=tt1375666</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>372784</id>
+				<titulo>Batman Begins</titulo>
+				<ano>2005</ano>
+				<avaliacao>8.2</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2992219161?playlistId=tt0372784</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>50083</id>
+		<titulo>12 Homens e uma Sentença</titulo>
+		<ano>1957</ano>
+		<avaliacao>9.0</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi3452609817?playlistId=tt0050083</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>108052</id>
+				<titulo>A Lista de Schindler</titulo>
+				<ano>1993</ano>
+				<avaliacao>8.9</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1158527769?playlistId=tt0108052</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>71562</id>
+				<titulo>O Poderoso Chefão II</titulo>
+				<ano>1974</ano>
+				<avaliacao>9.0</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi696162841?playlistId=tt0071562</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>60196</id>
+				<titulo>Três Homens em Conflito</titulo>
+				<ano>1966</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi3416964889?playlistId=tt0060196</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>108052</id>
+		<titulo>A Lista de Schindler</titulo>
+		<ano>1993</ano>
+		<avaliacao>8.9</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi1158527769?playlistId=tt0108052</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>109830</id>
+				<titulo>Forrest Gump: O Contador de Histórias</titulo>
+				<ano>1994</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi3567517977?playlistId=tt0109830</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>110912</id>
+				<titulo>Pulp Fiction: Tempo de Violência</titulo>
+				<ano>1994</ano>
+				<avaliacao>8.9</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2620371481?playlistId=tt0110912</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>120815</id>
+				<titulo>O Resgate do Soldado Ryan</titulo>
+				<ano>1998</ano>
+				<avaliacao>8.6</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1701906201?playlistId=tt0120815</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>167260</id>
+		<titulo>O Senhor dos Anéis: O Retorno do Rei</titulo>
+		<ano>2003</ano>
+		<avaliacao>8.9</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi2073101337?playlistId=tt0167260</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>167261</id>
+				<titulo>O Senhor dos Anéis: As Duas Torres</titulo>
+				<ano>2002</ano>
+				<avaliacao>8.7</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2073101337?playlistId=tt0167261</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>120737</id>
+				<titulo>O Senhor dos Anéis: A Sociedade do Anel</titulo>
+				<ano>2001</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2073101337?playlistId=tt0120737</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>133093</id>
+				<titulo>Matrix</titulo>
+				<ano>1999</ano>
+				<avaliacao>8.7</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1032782617?playlistId=tt0133093</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>110912</id>
+		<titulo>Pulp Fiction: Tempo de Violência</titulo>
+		<ano>1994</ano>
+		<avaliacao>8.9</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi2620371481?playlistId=tt0110912</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>137523</id>
+				<titulo>Clube da Luta</titulo>
+				<ano>1999</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi781228825?playlistId=tt0137523</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>109830</id>
+				<titulo>Forrest Gump: O Contador de Histórias</titulo>
+				<ano>1994</ano>
+				<avaliacao>8.8</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi3567517977?playlistId=tt0109830</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>1853728</id>
+				<titulo>Django Livre</titulo>
+				<ano>2012</ano>
+				<avaliacao>8.4</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2291574553?playlistId=tt1853728</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>60196</id>
+		<titulo>Três Homens em Conflito</titulo>
+		<ano>1966</ano>
+		<avaliacao>8.8</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi3416964889?playlistId=tt0060196</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>50083</id>
+				<titulo>12 Homens e uma Sentença</titulo>
+				<ano>1957</ano>
+				<avaliacao>9.0</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi3452609817?playlistId=tt0050083</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>59578</id>
+				<titulo>Por uns Dólares a Mais</titulo>
+				<ano>1965</ano>
+				<avaliacao>8.2</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi773831705?playlistId=tt0059578</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>108052</id>
+				<titulo>A Lista de Schindler</titulo>
+				<ano>1993</ano>
+				<avaliacao>8.9</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1158527769?playlistId=tt0108052</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+	<filme>
+		<id>120737</id>
+		<titulo>O Senhor dos Anéis: A Sociedade do Anel</titulo>
+		<ano>2001</ano>
+		<avaliacao>8.8</avaliacao>
+		<linkTrailer>https://www.imdb.com/video/vi2073101337?playlistId=tt0120737</linkTrailer>
+		<relacionados>
+			<filme>
+				<id>167261</id>
+				<titulo>O Senhor dos Anéis: As Duas Torres</titulo>
+				<ano>2002</ano>
+				<avaliacao>8.7</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2073101337?playlistId=tt0167261</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>167260</id>
+				<titulo>O Senhor dos Anéis: O Retorno do Rei</titulo>
+				<ano>2003</ano>
+				<avaliacao>8.9</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi2073101337?playlistId=tt0167260</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+			<filme>
+				<id>133093</id>
+				<titulo>Matrix</titulo>
+				<ano>1999</ano>
+				<avaliacao>8.7</avaliacao>
+				<linkTrailer>https://www.imdb.com/video/vi1032782617?playlistId=tt0133093</linkTrailer>
+				<relacionados>
+				</relacionados>
+			</filme>
+		</relacionados>
+	</filme>
+</filmes>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="filmes" type="filme">
+	</xs:element>
+
+	<xs:complexType name="filme">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="filme">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="id" type="xs:unsignedInt" />
+						<xs:element name="titulo" type="xs:string" />
+						<xs:element name="ano" type="xs:short" />
+						<xs:element name="avaliacao" type="xs:decimal" />
+						<xs:element name="linkTrailer" type="xs:anyURI" />
+						<xs:element name="relacionados" type="filme">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema> 
