@@ -1,4 +1,4 @@
-package br.ufc.mdcc.AT04.client;
+package br.ufc.mdcc.AT04.client.protobuffer;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.util.List;
 
+import br.ufc.mdcc.AT04.client.AbstractCalculadoraClient;
 import br.ufc.mdcc.AT04.shared.model.Element;
 import br.ufc.mdcc.AT04.shared.model.Number;
 import br.ufc.mdcc.AT04.shared.model.Operator;
@@ -14,7 +15,11 @@ import br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.EnumOperator;
 /**
  * Cliente para o serviço de calculadora disponibilizado via sockets.
  */
-public class CalculadoraClientSocket {
+public class CalculadoraClientProtobuffer extends AbstractCalculadoraClient {
+
+	public CalculadoraClientProtobuffer(String serverAddr, int serverPort, String expression) {
+		super(serverAddr, serverPort, expression);
+	}
 
 	/*
 	 * Given a List of Elements, generates an object of MExpression class
@@ -52,38 +57,28 @@ public class CalculadoraClientSocket {
 		return messageExpression;
 	}
 
+	protected double receiveResultData(Socket clientSocket) throws IOException {
+		InputStream inputStream = clientSocket.getInputStream();
+		br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result messageResult = br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result
+				.parseDelimitedFrom(inputStream);
+		return messageResult.getTotal();
+	}
+
+	protected void sendRpnData(Socket clientSocket, List<Element> elements) throws IOException {
+		DataOutputStream socketSaidaServer = new DataOutputStream(clientSocket.getOutputStream());
+		// generates the protobuffer message
+		br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression messageExpression = generateProtobufMessage(elements);
+		messageExpression.writeDelimitedTo(socketSaidaServer);
+		socketSaidaServer.flush();
+	}
+
 	public static void main(String[] args) {
 		String serverAddr = "127.0.0.1";
 		int serverPort = 9090;
 		String expression = "5-3/8+5*9";
 
-		// converts the expression to a List of Element containing the reverse polish
-		// notation form of the expression
-		List<Element> elements = ClientUtil.Exp2Rpn(expression);
-
-		// generates the protobuffer message
-		br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MExpression messageExpression = generateProtobufMessage(elements);
-
-		try {
-			// sending...
-			Socket clientSocket = new Socket(serverAddr, serverPort);
-			DataOutputStream socketSaidaServer = new DataOutputStream(clientSocket.getOutputStream());
-			messageExpression.writeDelimitedTo(socketSaidaServer);
-			socketSaidaServer.flush();
-
-			// receiving...
-			InputStream inputStream = clientSocket.getInputStream();
-			br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result messageResult = br.ufc.mdcc.AT04.shared.protobuffer.ResultProto.Result
-					.parseDelimitedFrom(inputStream);
-
-			double result = messageResult.getTotal();
-
-			System.out.println("resultado=" + result);
-
-			clientSocket.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		CalculadoraClientProtobuffer clientProtobuffer = new CalculadoraClientProtobuffer(serverAddr, serverPort,
+				expression);
+		clientProtobuffer.execute();
 	}
-
 }
