@@ -1,10 +1,13 @@
 package br.ufc.mdcc.AT04.client.xml;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.Socket;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,6 +21,9 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 import br.ufc.mdcc.AT04.client.AbstractCalculadoraClient;
 import br.ufc.mdcc.AT04.shared.model.Element;
@@ -106,10 +112,43 @@ public class CalculadoraClientXML extends AbstractCalculadoraClient {
         String xmlString = writer.getBuffer().toString();
         return xmlString;
 	}
+	
+	private Document convertStringToXMLDocument(String xmlResult) {
+		//Parser that produces DOM object trees from XML content
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+         
+        //API to obtain DOM Document instance
+        DocumentBuilder builder = null;
+        try
+        {
+            //Create DocumentBuilder with default configuration
+            builder = factory.newDocumentBuilder();
+             
+            //Parse the content to Document object
+            org.w3c.dom.Document doc = builder.parse(new InputSource(new StringReader(xmlResult)));
+            return doc;
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return null;
+	}
+	
+	private double convertXML2Double(Document xmlDoc) {
+		double result;
+		NodeList nodeList = xmlDoc.getElementsByTagName("result");
+		nodeList.item(0).getFirstChild().getNodeValue();
+		result = Double.parseDouble(nodeList.item(0).getFirstChild().getNodeValue().toString());
+		return result;
+	}
 
 	protected double receiveResultData(Socket clientSocket) throws IOException {
-		// TODO
-		return 0.0;
+		DataInputStream socketInput = new DataInputStream(clientSocket.getInputStream());
+		String xmlResult = socketInput.readUTF();
+		org.w3c.dom.Document xmlDoc = convertStringToXMLDocument(xmlResult);
+		double result = convertXML2Double(xmlDoc);
+		return result;
 	}
 
 	protected void sendRpnData(Socket clientSocket, List<Element> elements) throws IOException {
