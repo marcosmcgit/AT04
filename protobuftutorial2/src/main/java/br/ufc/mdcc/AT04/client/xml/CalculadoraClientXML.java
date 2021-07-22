@@ -30,8 +30,6 @@ import br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.EnumOperator;
  */
 public class CalculadoraClientXML extends AbstractCalculadoraClient {
 	
-	public static final String xmlFilePath = "D:\\xmlfile.xml";
-	
 	public CalculadoraClientXML(String serverAddr, int serverPort, String expression) {
 		super(serverAddr, serverPort, expression);
 	}
