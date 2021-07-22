@@ -3,6 +3,7 @@ package br.ufc.mdcc.AT04.client.xml;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.Socket;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class CalculadoraClientXML extends AbstractCalculadoraClient {
 	/*
 	 * Given a List of Elements, generates an XML of expression
 	 */
-	private static StreamResult generateXMLMessage(
+	private static String generateXMLMessage(
 			List<Element> elements) {
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 		 
@@ -92,21 +93,20 @@ public class CalculadoraClientXML extends AbstractCalculadoraClient {
 			e1.printStackTrace();
 		}
         DOMSource domSource = new DOMSource(document);
-        StreamResult streamResult = new StreamResult(new File(xmlFilePath));
 
+        StringWriter writer = new StringWriter();
+        try {
+			transformer.transform(domSource, new StreamResult(writer));
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		} 
         // If you use
         // StreamResult result = new StreamResult(System.out);
         // the output will be pushed to the standard output ...
         // You can use that for debugging 
-
-        try {
-			transformer.transform(domSource, streamResult);
-		} catch (TransformerException e) {
-			e.printStackTrace();
-		}
-
-        System.out.println("Done creating XML File");
-		return streamResult;
+        
+        String xmlString = writer.getBuffer().toString();
+        return xmlString;
 	}
 
 	protected double receiveResultData(Socket clientSocket) throws IOException {
@@ -117,9 +117,9 @@ public class CalculadoraClientXML extends AbstractCalculadoraClient {
 	protected void sendRpnData(Socket clientSocket, List<Element> elements) throws IOException {
 		DataOutputStream socketSaidaServer = new DataOutputStream(clientSocket.getOutputStream());
 		// generates the xml message
-		StreamResult xmlMessage = generateXMLMessage(elements);
-		//socketSaidaServer.writeUTF();;
-		//socketSaidaServer.flush();
+		String xmlMessage = generateXMLMessage(elements);
+		socketSaidaServer.writeUTF(xmlMessage);
+		socketSaidaServer.flush();
 	}
 
 	public static void main(String[] args) {
