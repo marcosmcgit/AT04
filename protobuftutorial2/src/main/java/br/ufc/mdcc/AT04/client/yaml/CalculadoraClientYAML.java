@@ -8,7 +8,7 @@ import br.ufc.mdcc.AT04.client.AbstractCalculadoraClient;
 import br.ufc.mdcc.AT04.shared.model.Element;
 
 /**
- * Cliente para o serviço de calculadora disponibilizado via sockets.
+ * Cliente para o serviï¿½o de calculadora disponibilizado via sockets.
  */
 public class CalculadoraClientYAML extends AbstractCalculadoraClient {
 
@@ -16,6 +16,11 @@ public class CalculadoraClientYAML extends AbstractCalculadoraClient {
 		super(serverAddr, serverPort, expression);
 	}
 
+	public void generateYAML(List<Element> elements) {
+		
+	}
+	
+	
 	protected double receiveResultData(Socket clientSocket) throws IOException {
 		// TODO
 		return 0.0;
