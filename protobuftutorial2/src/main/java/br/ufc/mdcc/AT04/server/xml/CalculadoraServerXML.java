@@ -1,16 +1,25 @@
 package br.ufc.mdcc.AT04.server.xml;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.text.Document;
+import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -82,10 +91,58 @@ public class CalculadoraServerXML extends AbstractCalculadoraServer {
 	    }
 		return rpn;
 	}
+	
+	//transform result on xml message to send to client
+	private String convertResult2XML(double result) {
+		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+		 
+        DocumentBuilder documentBuilder = null;
+		try {
+			documentBuilder = documentFactory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+
+        Document document = documentBuilder.newDocument();
+
+        // root element
+        org.w3c.dom.Element root = document.createElement("result");
+        root.appendChild(document.createTextNode(String.valueOf(result)));
+        document.appendChild(root);
+
+		
+		// create the xml file
+        //transform the DOM Object to an XML File
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = null;
+		try {
+			transformer = transformerFactory.newTransformer();
+		} catch (TransformerConfigurationException e1) {
+			e1.printStackTrace();
+		}
+        DOMSource domSource = new DOMSource(document);
+
+        StringWriter writer = new StringWriter();
+        try {
+			transformer.transform(domSource, new StreamResult(writer));
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		} 
+        // If you use
+        // StreamResult result = new StreamResult(System.out);
+        // the output will be pushed to the standard output ...
+        // You can use that for debugging 
+        
+        String xmlString = writer.getBuffer().toString();
+        return xmlString;
+	}
 
 	protected void sendResultData(Socket connectionSocket, double result) throws IOException {
-		// TODO
-		return;
+		String xmlResult = convertResult2XML(result);
+		DataOutputStream socketOutput = new DataOutputStream(connectionSocket.getOutputStream());
+		socketOutput.writeUTF(xmlResult);
+		socketOutput.flush();
+		socketOutput.close();
 	}
 
 	protected List<Element> receiveRpnData(Socket connectionSocket) throws IOException {
