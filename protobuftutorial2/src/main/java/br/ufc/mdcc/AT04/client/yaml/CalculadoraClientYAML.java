@@ -1,5 +1,6 @@
 package br.ufc.mdcc.AT04.client.yaml;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
@@ -26,13 +28,10 @@ public class CalculadoraClientYAML extends AbstractCalculadoraClient {
 	}
 
 	private String generateYAML(List<Element> elements) throws JsonProcessingException {
-	
 		ObjectMapper om = new ObjectMapper(new YAMLFactory());
-		
 		List<String> expressionElements = new ArrayList<String>();
 		
 		for (Element element : elements) {
-
 			if (element.isNumber()) {
 				Number number = (Number) element;
 				expressionElements.add(String.valueOf(number.getValue()));
@@ -53,24 +52,28 @@ public class CalculadoraClientYAML extends AbstractCalculadoraClient {
 		}
 		
 		Expression expression = new Expression(expressionElements);
-		
 		String yamlString = om.writeValueAsString(expression);
-		
-		System.out.print(yamlString);
-		
 		return yamlString;
 			
 	}
 	
 	
+	private Object convert2YamlObject(String yamlString) throws JsonMappingException, JsonProcessingException {
+		ObjectMapper om = new ObjectMapper(new YAMLFactory());
+		Result resultYamlObject = om.readValue(yamlString, Result.class);
+		return resultYamlObject;
+	}
+	
 	protected double receiveResultData(Socket clientSocket) throws IOException {
-		// TODO
-		return 0.0;
+		DataInputStream socketInput = new DataInputStream(clientSocket.getInputStream());
+		String yamlString = socketInput.readUTF();
+		Result result = (Result) convert2YamlObject(yamlString);
+		double resultDouble = result.getResult();
+		return resultDouble;
 	}
 
 	protected void sendRpnData(Socket clientSocket, List<Element> elements) throws IOException {
 		DataOutputStream socketSaidaServer = new DataOutputStream(clientSocket.getOutputStream());
-		// generates the xml message
 		String yamlMessage = generateYAML(elements);
 		socketSaidaServer.writeUTF(yamlMessage);
 		socketSaidaServer.flush();
