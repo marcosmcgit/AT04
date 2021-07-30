@@ -1,4 +1,4 @@
-package br.ufc.mdcc.AT04.client.yaml;
+package br.ufc.mdcc.AT04.shared.yaml;
 
 public class Result {
 	private double result;

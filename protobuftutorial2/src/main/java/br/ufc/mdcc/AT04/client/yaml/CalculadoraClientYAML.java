@@ -17,6 +17,8 @@ import br.ufc.mdcc.AT04.shared.model.Element;
 import br.ufc.mdcc.AT04.shared.model.Number;
 import br.ufc.mdcc.AT04.shared.model.Operator;
 import br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.EnumOperator;
+import br.ufc.mdcc.AT04.shared.yaml.Expression;
+import br.ufc.mdcc.AT04.shared.yaml.Result;
 
 /**
  * Cliente para o servi�o de calculadora disponibilizado via sockets.

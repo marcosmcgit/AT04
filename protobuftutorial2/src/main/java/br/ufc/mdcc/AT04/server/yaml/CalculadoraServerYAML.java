@@ -3,9 +3,7 @@ package br.ufc.mdcc.AT04.server.yaml;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.Socket;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,12 +12,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import br.ufc.mdcc.AT04.client.yaml.Expression;
 import br.ufc.mdcc.AT04.server.AbstractCalculadoraServer;
 import br.ufc.mdcc.AT04.shared.model.Element;
 import br.ufc.mdcc.AT04.shared.model.Number;
 import br.ufc.mdcc.AT04.shared.model.Operator;
-import br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.EnumOperator;
+import br.ufc.mdcc.AT04.shared.yaml.Expression;
+import br.ufc.mdcc.AT04.shared.yaml.Result;
 
 public class CalculadoraServerYAML extends AbstractCalculadoraServer {
 

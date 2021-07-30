@@ -1,4 +1,4 @@
-package br.ufc.mdcc.AT04.server.yaml;
+package br.ufc.mdcc.AT04.shared.yaml;
 
 import java.util.List;
 
@@ -20,4 +20,3 @@ public class Expression {
 	// Without a default constructor, Jackson will throw an exception
     public Expression() {}
 }
-
