@@ -3,7 +3,6 @@ package br.ufc.mdcc.AT04.server.xml;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.Socket;
@@ -29,7 +28,6 @@ import br.ufc.mdcc.AT04.server.AbstractCalculadoraServer;
 import br.ufc.mdcc.AT04.shared.model.Element;
 import br.ufc.mdcc.AT04.shared.model.Number;
 import br.ufc.mdcc.AT04.shared.model.Operator;
-import br.ufc.mdcc.AT04.shared.protobuffer.RPNProto.MElement.EnumOperator;
 
 public class CalculadoraServerXML extends AbstractCalculadoraServer {
 
@@ -128,10 +126,6 @@ public class CalculadoraServerXML extends AbstractCalculadoraServer {
 		} catch (TransformerException e) {
 			e.printStackTrace();
 		} 
-        // If you use
-        // StreamResult result = new StreamResult(System.out);
-        // the output will be pushed to the standard output ...
-        // You can use that for debugging 
         
         String xmlString = writer.getBuffer().toString();
         return xmlString;

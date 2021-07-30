@@ -2,12 +2,10 @@ package br.ufc.mdcc.AT04.client.xml;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.Socket;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -21,7 +19,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
@@ -103,11 +100,7 @@ public class CalculadoraClientXML extends AbstractCalculadoraClient {
 			transformer.transform(domSource, new StreamResult(writer));
 		} catch (TransformerException e) {
 			e.printStackTrace();
-		} 
-        // If you use
-        // StreamResult result = new StreamResult(System.out);
-        // the output will be pushed to the standard output ...
-        // You can use that for debugging 
+		}
         
         String xmlString = writer.getBuffer().toString();
         return xmlString;
